@@ -1,3 +1,24 @@
+<?php
+session_start();
+	$codigoError = $_SESSION['errorCodigo'];
+	if($codigoError == 1){
+
+		?>
+
+		<script defer>
+	
+	document.addEventListener('DOMContentLoaded', function() {
+            
+			alert("Codigo Incorrecto, Ingreselo de nuevo");
+           
+	});
+	</script>
+
+		<?php
+		ob_start();
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -33,68 +54,43 @@
 						<img src="images/img-01.png" alt="IMG">
 					</div>
 
-					<form action="almacenamientoDatos.php" method="post" class="login100-form validate-form">
+					<form action="functions/VerificarCodigo.php" method="post" class="login100-form validate-form">
 						<span class="login100-form-title" style="padding-bottom: 10px;">
-							Desarrollo de Software Seguro
+							Ingrese el codigo de verificacion que se le envio por correo
 						</span>
 
 						<p style="text-align: center; padding-bottom: 20px;">
-							Date de alta
+							Codigo:
 						</p>
 
+						<div>Temporizador: <span id="time">03:00</span></div>
+
 						<div class="wrap-input100 validate-input"
 							data-validate="Valid email is required: ex@abc.xyz">
-							<input class="input100" type="text" name="email" id="email" placeholder="Correo">
+							<input class="input100" type="number" name="AlternativeEmail" 
+							id="AlternativeEmail" placeholder="Codigo">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-envelope" aria-hidden="true"></i>
 							</span>
-						</div>
-
-						<div class="wrap-input100 validate-input"
-							data-validate="Valid email is required: ex@abc.xyz">
-							<input class="input100" type="text" name="emailAlter" id="email" placeholder="Correo alternativo">
-							<span class="focus-input100"></span>
-							<span class="symbol-input100">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
-							</span>
-						</div>
-
-						<div class="wrap-input100 validate-input"
-							data-validate="Password is required">
-							<input onkeypress="trigger(this)" class="input100" type="password" name="pass" id="pass" placeholder="Contraseña" maxlength="8">
-							<span class="focus-input100"></span>
-							<img style="width: 25px; cursor: pointer; top: -35px; left: 25px; position: relative;"
-							id="eye" onclick="change('open')" src="images/eye.svg" alt="">
-							<img style="width: 25px; cursor: pointer; top: -35px; left: 25px; position: relative;"
-							id="eyeOpen" onclick="change('close')" src="images/eyeOpen.svg" alt="" hidden>
-						</div>
-
-						<div class="wrap-input100 validate-input">
-							<div style="width: 100%; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-around;">
-								<div class="barraProgreso invisible_progressBar" id="progressBar_1"></div>
-								<div class="barraProgreso invisible_progressBar" id="progressBar_2"></div>
-								<div class="barraProgreso invisible_progressBar" id="progressBar_3"></div>
-							</div>
-							<p id="progressBarInformation" style="text-align: center; margin: 10px 0 20px;"></p>
 						</div>
 
 						<div class="container-login100-form-btn">
-							<button type="submit" id="cretaeUser" disabled="disabled" class="login100-form-btn">
-								Crear usuario
+							<button type="submit" id="cretaeUser" class="login100-form-btn">
+								Verificar
 							</button>
 						</div>
 						<div style="width: 100%; margin: 10px 0; text-align: center;">
-							<a href="showTables.php">Mostrar Tabla</a>
-						</div>
-						<div style="width: 100%; margin: 10px 0; text-align: center;">
-							<a href="forgetPass.php">Olvide mi contraseña</a>
+							<a href="index.html">Regresar</a>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 
+	<div>
+	
+</div>
 		<!--===============================================================================================-->
 		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 		<!--===============================================================================================-->
@@ -130,5 +126,7 @@
 		<!--===============================================================================================-->
 		<script src="js/main.js"></script>
 		<!--===============================================================================================-->
+		<script src="js/temporizador.js"></script>
 	</body>
 </html>
+

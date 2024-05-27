@@ -33,12 +33,12 @@
         <link rel="stylesheet" type="text/css" href="css/util.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/tablas.css">
-        <!--===============================================================================================-->
+        <!--======================================width:1100px; padding: 25px;  =====================================-->
     </head>
     <body>
         <div class="limiter">
-            <div class="container-login100">
-                <div class="wrap-login100" style="width:1100px; padding: 25px;">
+            <div class="container-login100">     
+                <div class="wrap-login100" style="width:5100px; padding: 155px;">
                     <!-- TABLA DE DATOS -->
                     <table>
                         <caption>
@@ -47,8 +47,10 @@
                         <thead>
                             <tr>
                                 <th scope="col" style="text-align: center; text-transform: uppercase;">Usuario</th>
+                                
                                 <th scope="col" style="text-align: center; text-transform: uppercase;">Contraseña</th>
                                 <th scope="col" style="text-align: center; text-transform: uppercase;">Contraseña hash</th>
+                                <th scope="col" style="text-align: center; text-transform: uppercase;">Correo Alternativo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,7 +58,8 @@
                             <tr>
                                 <th><?php echo $row['name'] ?></th>
                                 <th><?php echo $row['pass'] ?></th>
-                                <th><?php echo $row['hash'] ?></th>
+                                <th><?php echo $row['hassh'] ?></th>
+                                <th><?php echo $row['alterMail'] ?></th>
                             </tr>
                             <?php } ?>
                         </tbody>
