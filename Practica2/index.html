@@ -42,9 +42,16 @@
 							Date de alta
 						</p>
 
+						<p style="text-align: center; padding-bottom: 20px;">
+							<span style="color: red;">
+								TODO LO QUE TENGA UN '*' ES OBLIGARORIO
+							</span>
+						</p>
+
 						<div class="wrap-input100 validate-input"
-							data-validate="Valid email is required: ex@abc.xyz">
-							<input class="input100" type="text" name="email" id="email" placeholder="Correo">
+							data-validate="Valid email is required: ex@abc.xyz"> <!-- REAL MAIL -->
+							<input class="input100" type="email" name="email" 
+							id="email" placeholder="Correo *" required>
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -52,17 +59,48 @@
 						</div>
 
 						<div class="wrap-input100 validate-input"
-							data-validate="Valid email is required: ex@abc.xyz">
-							<input class="input100" type="text" name="emailAlter" id="email" placeholder="Correo alternativo">
+							data-validate="Valid email is required: ex@abc.xyz"> <!-- ALTER MAIL -->
+							<input class="input100" type="email" name="emailAlter" 
+							id="email" placeholder="Correo alternativo *" required>
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-envelope" aria-hidden="true"></i>
 							</span>
+						</div>
+
+						<div class="wrap-input100 validate-input"
+							data-validate="Valid email is required: Nick Valentine"> <!-- NAME -->
+							<input class="input100" type="text" name="first_name" 
+							id="first_name" placeholder="Primer Nombre *" required>
+						</div>
+
+						<div class="wrap-input100 validate-input"
+							data-validate="Valid email is required: Nick Valentine"> <!-- LAST NAME FATHER -->
+							<input class="input100" type="text" name="lastName_name_F" maxlength="150"
+							id="lastName_name_F" placeholder="Apellido Padre *" required>
+						</div>
+
+						<div class="wrap-input100"> <!-- LAST NAME MOTHER -->
+							<input class="input100" type="text" name="lastName_name_m" maxlength="150"
+							id="lastName_name_m" placeholder="Apellido Materno">
+						</div>
+
+						<div class="wrap-input100 validate-input"
+							data-validate="Valid email is required: Nick Valentine"> <!-- AGE -->
+							<input class="input100" type="number" name="age" 
+							id="age" placeholder="Edad *" required>
+						</div>
+
+						<div class="wrap-input100 validate-input"
+							data-validate="Valid email is required: Nick Valentine"> <!-- FECHA DE NACIMIENTO -->
+							<label for="birth_date">Fecha *</label>
+							<input class="input100" type="date" name="birth_date" id="birth_date" >
 						</div>
 
 						<div class="wrap-input100 validate-input"
 							data-validate="Password is required">
-							<input onkeypress="trigger(this)" class="input100" type="password" name="pass" id="pass" placeholder="Contraseña" maxlength="8">
+							<input onkeypress="trigger(this)" class="input100" type="password" name="pass" 
+							id="pass" placeholder="Contraseña *" maxlength="8" required>
 							<span class="focus-input100"></span>
 							<img style="width: 25px; cursor: pointer; top: -35px; left: 25px; position: relative;"
 							id="eye" onclick="change('open')" src="images/eye.svg" alt="">

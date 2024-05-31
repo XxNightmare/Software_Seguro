@@ -228,6 +228,7 @@ iframe {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
+  align-items: center;
 
   display: -webkit-box;
   display: -webkit-flex;
