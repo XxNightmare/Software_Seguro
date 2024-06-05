@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2024 a las 19:15:43
+-- Tiempo de generación: 05-06-2024 a las 18:12:00
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,8 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `securesoftware`
 --
-CREATE DATABASE IF NOT EXISTS `securesoftware` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `securesoftware`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `perfil`
+--
+
+CREATE TABLE `perfil` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `perfil`
+--
+
+INSERT INTO `perfil` (`id`, `nombre`, `descripcion`) VALUES
+(1, 'Administrador', ''),
+(2, 'Docentes', ''),
+(3, 'Alumnos', '');
 
 -- --------------------------------------------------------
 
@@ -35,37 +54,53 @@ CREATE TABLE `usuario` (
   `pass` varchar(8) NOT NULL,
   `hash` varchar(150) NOT NULL,
   `alterMail` varchar(250) NOT NULL,
-  `validate` tinyint(1) NOT NULL,
-  `token` varchar(8) NOT NULL
+  `first_name` varchar(50) NOT NULL,
+  `lastName_F` varchar(150) NOT NULL,
+  `lastName_M` varchar(150) DEFAULT NULL,
+  `birth_date` date NOT NULL,
+  `age` int(11) NOT NULL,
+  `id_perfil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `name`, `pass`, `hash`, `alterMail`, `validate`, `token`) VALUES
-(1, 'a21110143@ceti.mx', 'Hol12.$d', '$2y$10$TkoIQISl.8sn.Twc.XytiOjAf6PfgYfExnSFwHvn3Ysh9BnqAiPrW', '', 0, ''),
-(2, 'a2111144@ceti.mx', 'Vf1.$dlk', '$2y$10$491obCVkViWPeGa9SKgd2efrV03.rj1cBGz68qfplNQOyUqIQCtam', '', 0, '');
+INSERT INTO `usuario` (`id`, `name`, `pass`, `hash`, `alterMail`, `first_name`, `lastName_F`, `lastName_M`, `birth_date`, `age`, `id_perfil`) VALUES
+(8, 'a21110143@ceti.mx', 'hol9/mdj', '$2y$10$eLlpfS6NCVH4Bhp0RTYONuYThPNmKqAsOgVdWvj586uIVoL4oSa3u', 'a21110143@ceti.mx', 'Rafael', 'Otero', '', '0000-00-00', 23, 3);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `perfil`
+--
+ALTER TABLE `perfil`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_perfil` (`id_perfil`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
+-- AUTO_INCREMENT de la tabla `perfil`
+--
+ALTER TABLE `perfil`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

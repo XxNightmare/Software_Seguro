@@ -108,6 +108,22 @@
 							id="eyeOpen" onclick="change('close')" src="images/eyeOpen.svg" alt="" hidden>
 						</div>
 
+						<div class="wrap-input100 validate-input"
+							data-validate="Valid email is required: Nick Valentine"> <!-- TIPO DE USUARIO -->
+							<p class="">Tipo Usuario *</p>
+							<div style="display: flex; flex-direction: row; justify-content: space-between;">
+								<label for="tipUser_alum"> Alumno
+									<input class="input100" type="radio" value="1" name="id_perfil" id="tipUser_alum">
+								</label>
+								<label for="tipUser_teach"> Docentes
+									<input class="input100" type="radio" value="2" name="id_perfil" id="tipUser_teach">
+								</label>
+								<label for="tipUser_dire"> Director
+									<input class="input100" type="radio" value="3" name="id_perfil" id="tipUser_dire">
+								</label>
+							</div>
+						</div>
+
 						<div class="wrap-input100 validate-input">
 							<div style="width: 100%; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-around;">
 								<div class="barraProgreso invisible_progressBar" id="progressBar_1"></div>
@@ -122,9 +138,11 @@
 								Crear usuario
 							</button>
 						</div>
+
 						<div style="width: 100%; margin: 10px 0; text-align: center;">
 							<a href="showTables.php">Mostrar Tabla</a>
 						</div>
+
 						<div style="width: 100%; margin: 10px 0; text-align: center;">
 							<a href="forgetPass.php">Olvide mi contraseña</a>
 						</div>
