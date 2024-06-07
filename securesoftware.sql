@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-06-2024 a las 18:12:00
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 07-06-2024 a las 04:11:41
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,7 +50,7 @@ INSERT INTO `perfil` (`id`, `nombre`, `descripcion`) VALUES
 
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `name_` varchar(100) NOT NULL,
   `pass` varchar(8) NOT NULL,
   `hash` varchar(150) NOT NULL,
   `alterMail` varchar(250) NOT NULL,
@@ -66,8 +66,12 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `name`, `pass`, `hash`, `alterMail`, `first_name`, `lastName_F`, `lastName_M`, `birth_date`, `age`, `id_perfil`) VALUES
-(8, 'a21110143@ceti.mx', 'hol9/mdj', '$2y$10$eLlpfS6NCVH4Bhp0RTYONuYThPNmKqAsOgVdWvj586uIVoL4oSa3u', 'a21110143@ceti.mx', 'Rafael', 'Otero', '', '0000-00-00', 23, 3);
+INSERT INTO `usuario` (`id`, `name_`, `pass`, `hash`, `alterMail`, `first_name`, `lastName_F`, `lastName_M`, `birth_date`, `age`, `id_perfil`) VALUES
+(8, 'a21110143@ceti.mx', 'hol9/mdj', '$2y$10$eLlpfS6NCVH4Bhp0RTYONuYThPNmKqAsOgVdWvj586uIVoL4oSa3u', 'a21110143@ceti.mx', 'Rafael', 'Otero', '', '0000-00-00', 23, 3),
+(12, 'jona88738@gmail.com', 'Jona-_13', '$2y$10$WDWOXQtSNGoh.Pyu7mjdlemiTEGIsH7/2BjZYvDoGnguk7HOYIFX2', 'aux@gmail.com', 'Jonathan', 'Arellano', 'Perez', '0000-00-00', 23, 2),
+(13, 'alex@gmail.com', 'Alex_132', '$2y$10$II0SUyGTSsm74aLbmsGn7OHjWcphsO1PoVMS8UAlarfvoucPMTgQm', 'aux@gmail.com', 'Alex', 'sdasd', 'Tobar', '0000-00-00', 23, 1),
+(14, 'alexx@gmail.com', 'AA', '$2y$10$2cl.BwYiykGaiGlaBhPlJeHBzP5FJGlRXJQU/BKRU2eJ8rLx9oCyu', 'asd', 'sd', 'a', 'a', '0000-00-00', 12, 1),
+(15, 'au@gmail.com', 'Joklaid_', '$2y$10$hQyoe2MMMbfdip5YnZYI5uVfJBBzZ9sQdvYE0PihaTYuXrxC9foZa', 'aux@gmail.com', 'aux', 'aux', 'aux', '0000-00-00', 23, 3);
 
 --
 -- Índices para tablas volcadas
@@ -100,7 +104,7 @@ ALTER TABLE `perfil`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
