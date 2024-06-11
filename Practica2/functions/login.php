@@ -22,6 +22,7 @@ session_start();
 
     // Guardar el ID del usuario en una variable de sesión
     $_SESSION['user_id'] = $user_id;
+    $_SESSION['correo_personal'] = $Email;
     $_SESSION['NoPermiso'] = 0;
 
    

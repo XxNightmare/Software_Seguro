@@ -26,7 +26,7 @@ session_start();
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+<title>Software Seguro</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -305,10 +305,17 @@ $(document).ready(function(){
 			<div class="table-title">
 				<div class="row">
 					<div class="col-sm-6">
-						<h2>Manage <b>Employees</b></h2>
+						<h2><b>Usuarios</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal">
+							<i class="material-icons">&#xE147;</i> 
+							<span>Agregar usuario</span>
+						</a>
+						<a href="http://localhost/Software_Seguro/Practica2/login.html" class="btn btn-info">
+							<i class="material-icons person_off">&#xe510;</i> 
+							<span>Cerrar Sesion</span>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -316,37 +323,31 @@ $(document).ready(function(){
 				<thead>
 					<tr>
 						
-						<th>Name</th>
-						<th>Password</th>
-						<th>hash</th>
-						<th>alterMail</th>
-						<th>lastName_F</th>
-						<th>lastName_M</th>
-						<th>birth_date</th>
-						<th>age</th>
-						<th>id_perfil</th>
+						<th>Correo</th>
+						<th>Contraseña</th>
+						<th>Contraseña Segura</th>
+						<th>Correo Alternativo</th>
+						<th>Nombre</th>
+						<th>Apellido Paterno</th>
+						<th>Apellido Materno</th>
+						<th>Fecha Nacimiento</th>
+						<th>Edad</th>
+						<th>Perfil</th>
+						<th>Accion</th>
 					</tr>
 				</thead>
 				<tbody>
 						<?php
-						include("./conexion.php");
-
-						$con = conectar();
+							include("./conexion.php");
+							
+							$con = conectar();
 							$sql = "SELECT * FROM usuario";
 
-							// Ejecutar la consulta
 							$result = $con->query($sql);
-
-							 // Recorrer los resultados y mostrarlos en la tabla
-							 while($row = $result->fetch_assoc()) {
+							
+							// Recorrer los resultados y mostrarlos en la tabla
+							while($row = $result->fetch_assoc()) {
 								echo "<tr>";
-
-								?>
-								
-								 
-								<?php
-
-
 								echo "<td>" . $row["name_"] . "</td>";
 								echo "<td>" . $row["pass"] . "</td>";
 								echo "<td style=word-wrap: break-word;>" . $row["hash"] . "</td>";
@@ -357,8 +358,6 @@ $(document).ready(function(){
 								echo "<td>" . $row["birth_date"] . "</td>";
 								echo "<td>" . $row["age"] . "</td>";
 								echo "<td>" . $row["id_perfil"] . "</td>";
-								#echo "</tr>";
-
 								?>
 								<td>
 								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -367,31 +366,14 @@ $(document).ready(function(){
 								 </tr>
 								<?php
 							}
-
 						?>
-							<tr>
-								<td></td>	
-
-							</tr>
-
 				</tbody>
 			</table>
-			<div class="clearfix">
-				<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-				<ul class="pagination">
-					<li class="page-item disabled"><a href="#">Previous</a></li>
-					<li class="page-item active"><a href="#" class="page-link">1</a></li>
-					<li class="page-item"><a href="#" class="page-link">2</a></li>
-					<li class="page-item "><a href="#" class="page-link">3</a></li>
-					<li class="page-item"><a href="#" class="page-link">4</a></li>
-					<li class="page-item"><a href="#" class="page-link">5</a></li>
-					<li class="page-item"><a href="#" class="page-link">Next</a></li>
-				</ul>
-			</div>
 		</div>
-	</div>        
+	</div>
 </div>
-<!-- Edit Modal HTML -->
+
+<!-- Add Modal HTML -->
 <div id="addEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -476,54 +458,49 @@ $(document).ready(function(){
 				<div class="modal-body">					
 					<div class="form-group">
 						<label>Correo</label>
-						<input type="email" name="email" class="form-control" required>
+						<input type="email" name="email" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Contraseña</label>
-						<input type="password" name="pass"  class="form-control" required>
+						<input type="password" name="pass"  class="form-control">
 					</div>
 					<div class="form-group">
 					<label>Correo alterno</label>
-					<input type="text" name="emailAlter" class="form-control" required>
+					<input type="text" name="emailAlter" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Primer Nombre</label>
-						<input type="text" name="first_name" class="form-control" required>
+						<input type="text" name="first_name" class="form-control">
 					</div>	
 
 					<div class="form-group">
 						<label>Primer Apellido</label>
-						<input type="text" name="lastName_name_m" class="form-control" required>
+						<input type="text" name="lastName_name_m" class="form-control">
 					</div>	
 					
 
 					<div class="form-group">
 						<label>Segundo Apellido</label>
-						<input type="text" name="lastName_name_F" class="form-control" required>
+						<input type="text" name="lastName_name_F" class="form-control">
 					</div>	
 					
 
 					<div class="form-group">
 						<label>Cumpleaños</label>
-						<input type="date" name="birth_date" class="form-control" required>
+						<input type="date" name="birth_date" class="form-control">
 
 					</div>	
 					
 					<div class="form-group">
 						<label>Edad</label>
-						<input type="number" name="age" class="form-control" required>
+						<input type="number" name="age" class="form-control">
 						
 					</div>	
 
 					<div class="form-group">
 						<label>Id Perfil</label>
-						<input type="number" name="id_perfil" class="form-control" required>
-						
+						<input type="number" name="id_perfil" class="form-control">
 					</div>	
-					
-					
-
-
 				</div>
 
 				<div class="modal-footer">
